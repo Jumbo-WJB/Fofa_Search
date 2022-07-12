@@ -54,7 +54,7 @@ async def Search_Keywords(url,output):
 
 async def CheckKey(email,key):
     print("check fofa key.....")
-    url = f"https://fofa.so/api/v1/info/my?email={email}&key={key}"
+    url = f"https://fofa.info/api/v1/info/my?email={email}&key={key}"
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
             html = await response.text()
@@ -90,7 +90,7 @@ def main():
                     print(f"搜索的关键词为: {search_keywords}")
                     search_keyword = base64.b64encode(search_keywords.encode()).decode()
                     # print(search_keyword)
-                    url = f"https://fofa.so/api/v1/search/all?email={FOFA_EMAIL}&key={FOFA_KEY}&qbase64={search_keyword}&size=10000&fields=host,ip,domain,port,title"
+                    url = f"https://fofa.info/api/v1/search/all?email={FOFA_EMAIL}&key={FOFA_KEY}&qbase64={search_keyword}&size=10000&fields=host,ip,domain,port,title"
                     # print(url)
                     loop = asyncio.get_event_loop()
                     task = loop.create_task(Search_Keywords(url,args.output))
@@ -104,7 +104,7 @@ def main():
             # search_keywords = b'domain="htisec.com"'
             search_keyword = base64.b64encode(search_keywords.encode()).decode()
             # print(search_keyword)
-            url = f"https://fofa.so/api/v1/search/all?email={FOFA_EMAIL}&key={FOFA_KEY}&qbase64={search_keyword}&size=10000&fields=host,ip,domain,port,title"
+            url = f"https://fofa.info/api/v1/search/all?email={FOFA_EMAIL}&key={FOFA_KEY}&qbase64={search_keyword}&size=10000&fields=host,ip,domain,port,title"
             # print(url)
             loop = asyncio.get_event_loop()
             task = loop.create_task(Search_Keywords(url,args.output))
